@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación de Boda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .fondo-marmol {
+      background: url('https://images.unsplash.com/photo-1694378061128-d3df24b1ae47?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .tarjeta {
+      background: url('https://plus.unsplash.com/premium_photo-1661599028992-3091d50d880b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D') no-repeat center center;
+      background-size: cover;
+      width: 400px;
+      max-width: 100%;
+      height: auto;
+      padding: 40px 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      text-align: center;
+      position: relative;
+      border-radius: 8px;
+    }
+
+    .contenido {
+      position: relative;
+      z-index: 2;
+    }
+
+    .bloque-central {
+      transform: translate(7%, 3%);
+      transition: transform 0.3s ease;
+      margin: 0;
+    }
+
+    .intro, .detalles, .final {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      color: #000;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      margin: 10px 0 20px;
+      color: #000;
+    }
+
+    .aniversario, .nombres-padres {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .fecha {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    /* Responsivo para móviles */
+    @media (max-width: 480px) {
+      .bloque-central {
+        transform: translate(6%, 0%);
+      }
+
+      .tarjeta {
+        padding: 30px 20px;
+      }
+
+      .intro, .detalles, .final, .aniversario, .nombres-padres {
+        font-size: 13px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .fecha {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="fondo-marmol">
+    <div class="tarjeta">
+      <div class="contenido">
+        <p class="intro">
+          UN DÍA CON LA MANO DE DIOS COINCIDIERON<br>
+          NUESTROS DESTINOS Y HOY CON LA BENDICIÓN DE DIOS<br>
+          Y NUESTROS PADRES UNIREMOS NUESTRAS VIDAS<br>
+          Y ACOMPAÑAMOS A CELEBRAR NUESTRA BODA
+        </p>
+        <h1>Lindsey & Miguel</h1>
+        <div class="bloque-central">
+          <p class="aniversario">50 aniversario de nuestros padres</p>
+          <p class="nombres-padres"><strong>Francisco & Martha Contreras</strong></p>
+          <p class="detalles">
+            <span class="fecha">19 | NOVIEMBRE | 2022</span><br><br><br>
+            "IGLESIA DE NUESTRA SEÑORA DE GUADALUPE"<br>
+            345 Anita St. CHULA VISTA, CA 91911
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
