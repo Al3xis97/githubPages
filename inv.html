@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invitación Especial</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400;500&display=swap');
+
+    body {
+      background: linear-gradient(to bottom right, #fdf6f0, #ece2d0);
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .titulo-esposos {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.7rem;
+      color: #000;
+      font-style: italic;
+      font-weight: 300;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1rem;
+      z-index: 10;
+    }
+
+    .petalos {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .petalo {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      animation: flotar 3s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: url('https://plus.unsplash.com/premium_photo-1674581215484-e6242a37c51e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3') no-repeat center center;
+      background-size: cover;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero img {
+      width: 100vw;
+      height: auto;
+      object-fit: cover;
+      transition: opacity 1s ease-in-out;
+      margin-top: 1rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.45);
+      z-index: 1;
+    }
+
+    .info-evento {
+      position: absolute;
+      top: 40vh;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #000;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .info-evento p {
+      font-size: 1.3rem; 
+      font-weight: 500;
+      color: #000;
+      margin-bottom: 0.5rem;
+    }
+
+    #reloj-regresivo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      color: #000;
+    }
+    
+    .reloj-item {
+  display: inline-block;
+  padding: 7px 10px;
+  margin: 0px;
+  border-radius: 50px;
+  background-color: #f2e8d5; /* Color crema sólido */
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+
+    .card {
+      background-color: #fdf6f0;
+      border: 1px solid #cfc5b5;
+      margin-top: 3rem;
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+
+    .card-title {
+      color: #4a4a4a;
+      font-weight: 500;
+    }
+
+    .card-text {
+      color: #000;
+      font-size: 1rem;
+    }
+
+    .btn-crema {
+      background-color: #f2e8d5;
+      border: 2px solid #4a4a4a;
+      color: #2c2c2c;
+    }
+
+    .btn-crema:hover {
+      background-color: #e5d6bc;
+      border-color: #2c2c2c;
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .titulo-esposos {
+        font-size: 3.4rem;
+      }
+
+      .card-img-top {
+        height: 150px;
+      }
+
+      .card-text {
+        font-size: 0.95rem;
+      }
+
+      .info-evento {
+        font-size: 1.2rem;
+        left: 10%;
+        top: 25vh;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .titulo-esposos {
+        font-size: 3.4rem;
+      }
+
+      .card-img-top {
+        height: 150px;
+      }
+
+      .card-text {
+        font-size: 0.95rem;
+      }
+
+      .info-evento {
+        font-size: 1.1rem;
+        top: 30vh;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0 1rem;
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="petalos" id="confeti-container"></div>
+
+  <header class="hero">
+    <h1 class="titulo-esposos">Valeria & Alejandro</h1>
+    <div class="info-evento">
+        <p><i class="bi bi-calendar-event"></i> <strong>Fecha:</strong><br>Sábado, 12 de Julio 2025</p>
+        <p><i class="bi bi-clock"></i> <strong>Hora:</strong><br>5:00 PM</p>
+        <p>
+          <i class="bi bi-geo-alt"></i> <strong>Ubicación:</strong><br>
+          <a href="https://www.google.com/maps?q=Palacio+de+Bellas+Artes+CDMX" target="_blank" class="text-decoration-none text-dark">
+            Palacio de Bellas Artes, CDMX
+          </a>
+        </p>
+        <div id="reloj-regresivo">
+          <span class="reloj-item" id="dias"></span>
+          <span class="reloj-item" id="horas"></span>
+          <span class="reloj-item" id="minutos"></span>
+          <span class="reloj-item" id="segundos"></span>
+        </div>
+      </div>
+      
+    <img id="heroImage" src="https://images.unsplash.com/photo-1581629779584-0aa1621f7d01?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen principal" />
+  </header>
+
+  <main class="container py-5">
+    <div class="card shadow rounded-4 border-0">
+      <img src="https://plus.unsplash.com/premium_photo-1674581215484-e6242a37c51e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3" class="card-img-top" alt="Imagen del evento">
+      <div class="card-body text-center">
+        <h3 class="card-title">Celebración Especial</h3>
+        <p class="card-text">Te esperamos para compartir un momento lleno de alegría, amistad y buenos recuerdos.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a href="https://wa.me/?text=Confirmo%20mi%20asistencia%20al%20evento" class="btn btn-crema px-4 rounded-pill">
+            Confirmar asistencia
+          </a>
+          <a href="https://www.google.com/maps?q=Palacio+de+Bellas+Artes+CDMX" class="btn btn-crema px-4 rounded-pill">
+            Ver ubicación
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-4 text-muted small">
+    &copy; 2025 Invitación Digital. Todos los derechos reservados.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Confeti
+    const simbolos = ['✾','✾'];
+    const container = document.getElementById('confeti-container');
+  
+    for (let i = 0; i < 50; i++) {
+      const petalo = document.createElement('div');
+      petalo.classList.add('petalo');
+      petalo.innerText = simbolos[Math.floor(Math.random() * simbolos.length)];
+      petalo.style.left = Math.random() * 100 + 'vw';
+      petalo.style.animationDelay = Math.random() * 5 + 's';
+      petalo.style.fontSize = (20 + Math.random() * 10) + 'px';
+      container.appendChild(petalo);
+    }
+  
+    // Scroll automático más lento después de 3 segundos
+    setTimeout(() => {
+      const target = document.querySelector("main").offsetTop;
+      let current = window.scrollY;
+      const step = () => {
+        current += 5;
+        if (current < target) {
+          window.scrollTo(0, current);
+          requestAnimationFrame(step);
+        }
+      };
+      requestAnimationFrame(step);
+    }, 3000);
+  
+    // Cambio de imagen automática
+    const images = [
+      "https://images.unsplash.com/photo-1581629779584-0aa1621f7d01?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1629744418692-345355518e78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1hcnJ5fGVufDB8fDB8fHww"
+    ];
+  
+    let currentImage = 0;
+    const heroImg = document.getElementById('heroImage');
+  
+    setInterval(() => {
+      currentImage = (currentImage + 1) % images.length;
+      heroImg.style.opacity = 0;
+      setTimeout(() => {
+        heroImg.src = images[currentImage];
+        heroImg.style.opacity = 1;
+      }, 500);
+    }, 2000);
+  
+    // Reloj regresivo
+    const fechaEvento = new Date("2025-07-12T17:00:00").getTime();
+    const reloj = document.getElementById("reloj-regresivo");
+  
+    setInterval(() => {
+      const ahora = new Date().getTime();
+      const distancia = fechaEvento - ahora;
+  
+      if (distancia < 0) {
+        reloj.innerText = "¡El evento ha comenzado!";
+        return;
+      }
+  
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+      
+      document.getElementById("dias").innerText = `${dias}D`;
+document.getElementById("horas").innerText = `${horas}H`;
+document.getElementById("minutos").innerText = `${minutos}M`;
+document.getElementById("segundos").innerText = `${segundos}S`;
+
+    }, 1000);
+  </script>
+  
+</body>
+</html>
