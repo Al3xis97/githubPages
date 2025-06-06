@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invitación XV Años</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      background-image: url('https://images.unsplash.com/photo-1714611302520-5afa2c3e26df?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8eHYlMjBhJUMzJUIxb3N8ZW58MHx8MHx8fDA%3D');
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+    }
+
+    .overlay {
+      
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: #fff0f5;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    .icon-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .icon-text i {
+      color: #fff;
+      font-size: 1.3rem;
+    }
+
+    .countdown {
+      font-size: 1.8rem;
+      margin: 1.5rem 0;
+      font-weight: bold;
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .countdown {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Mis XV Años</h1>
+    <p>Con mucha alegría te invito a celebrar mis XV años. Será un momento muy especial que quiero compartir contigo.</p>
+
+    <div class="icon-text">
+      <i class="bi bi-calendar-heart"></i>
+      <span><strong>Fecha:</strong> 20 de Julio de 2025</span>
+    </div>
+
+    <div class="icon-text">
+      <i class="bi bi-clock-fill"></i>
+      <span><strong>Hora:</strong> 7:00 PM</span>
+    </div>
+
+    <div class="icon-text">
+      <i class="bi bi-hourglass-split"></i>
+      <div class="countdown" id="countdown">
+        Cargando cuenta regresiva...
+      </div>
+    </div>
+
+    <a class="btn-whatsapp" href="https://wa.me/5211234567890?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20tus%20XV%20años%21" target="_blank">
+      <i class="bi bi-whatsapp"></i> Confirmar por WhatsApp
+    </a>
+  </div>
+
+  <script>
+    const countdown = document.getElementById("countdown");
+    const eventDate = new Date("July 20, 2025 19:00:00").getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        countdown.innerHTML = "¡Ya comenzó la fiesta!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+</body>
+</html>
